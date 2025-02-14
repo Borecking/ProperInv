@@ -1,0 +1,59 @@
+﻿@model ProperTax.Models.StawkaPodatku
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Sczegóły stawek podatków 📊</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rok)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rok)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiWartoscBudowli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiWartoscBudowli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Komentarz)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Komentarz)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Rok">Edytuj ⌨️</a> |
+    <a asp-action="Index">Wróć do listy 🔙</a>
+</div>

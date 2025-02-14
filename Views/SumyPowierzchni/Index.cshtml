@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProperTax.Models.SumaPowierzchni>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sumy powierzchni</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RokMiesiac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaWartoscBudowli)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @item.RokMiesiac.ToString("yyyy-MM")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaPowierzchniKategoriaWartoscBudowli)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.RokMiesiac">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

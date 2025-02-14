@@ -1,0 +1,127 @@
+﻿@model IEnumerable<ProperTax.Models.Nieruchomosc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Nieruchomości 🏡</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nową nieruchomość 🆕</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NrKsiegiWieczystej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrObrebu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDzialki)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Udzial100m)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PowierzchniaUzytkowaBudynku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriaWartoscBudowli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormaWladania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataKupienia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataSprzedania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Komentarz)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrKsiegiWieczystej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrObrebu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDzialki)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Udzial100m)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PowierzchniaUzytkowaBudynku)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriaWartoscBudowli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaWladania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataKupienia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSprzedania)
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Komentarz) && item.Komentarz.Length > 10)
+                {
+                    <span>@item.Komentarz.Substring(0, 10)...</span>
+                        <a href="@Url.Action("Details", "Nieruchomosci", new { id = item.Id })">Pokaż więcej 📊</a>
+                }
+                else
+                {
+                    <span>@item.Komentarz</span>
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj ⌨️</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły 📊</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń 🗑️</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

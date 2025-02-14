@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ProperTax.Models.StawkaPodatku>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stawki podatków 💸</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy rok 🆕</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StawkaKategoriiWartoscBudowli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Komentarz)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StawkaKategoriiWartoscBudowli)
+            </td>
+            <td>
+                    @if (!string.IsNullOrEmpty(item.Komentarz) && item.Komentarz.Length > 20)
+                    {
+                        <span>@item.Komentarz.Substring(0, 20)...</span>
+                        <a href="@Url.Action("Details", "StawkiPodatkow", new { id = item.Rok })">Pokaż więcej 📊</a>
+                    }
+                    else
+                    {
+                        <span>@item.Komentarz</span>
+                    }
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Rok">Edytuj ⌨️</a> |
+                    <a asp-action="Details" asp-route-id="@item.Rok">Szczegóły 📊</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Rok">Usuń 🗑️</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@model ProperTax.Models.SumaPowierzchni
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SumaPowierzchni</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SumaPowierzchniKategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SumaPowierzchniKategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SumaPowierzchniKategoriaWartoscBudowli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SumaPowierzchniKategoriaWartoscBudowli)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.RokMiesiac">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

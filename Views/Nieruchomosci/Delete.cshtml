@@ -1,0 +1,109 @@
+﻿@model ProperTax.Models.Nieruchomosc
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>🛑 Czy na pewno chcesz usunąć tą nieruchomość?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NrKsiegiWieczystej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NrKsiegiWieczystej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NrObrebu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NrObrebu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdDzialki)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdDzialki)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Udzial100m)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Udzial100m)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PowierzchniaUzytkowaBudynku)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PowierzchniaUzytkowaBudynku)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriaGruntyPowierzchniaDzialkiMieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriaGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriaBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriaWartoscBudowli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriaWartoscBudowli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FormaWladania)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FormaWladania)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataKupienia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataKupienia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataSprzedania)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataSprzedania)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Komentarz)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Komentarz)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń 🗑️" class="btn btn-danger" /> |
+        <a asp-action="Index">Wróć do listy 🔙</a>
+    </form>
+</div>

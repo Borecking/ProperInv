@@ -1,0 +1,77 @@
+﻿@model ProperTax.Models.StawkaPodatku
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>🛑 Czy na pewno chcesz usunąć ten rok?</h1>
+
+@if (ViewBag.IloscNieruchomosci > 0)
+{
+    <p><strong>Usunięcie sprawi, że @ViewBag.IloscNieruchomosci nieruchomości zostanie usuniętych❗</strong></p>
+    <p>Te nieruchomości są zależne od stawek z @Html.DisplayFor(model => model.Rok) roku:</p>
+    <ul>
+        @foreach (ProperTax.Models.Nieruchomosc nieruchomosc in (IEnumerable<ProperTax.Models.Nieruchomosc>)ViewBag.PowiazaneNieruchomosci)
+        {
+            <li>
+                <strong>Adres:</strong> @nieruchomosc.Adres<br />
+                <strong>Data zakupienia:</strong> @nieruchomosc.DataKupienia.ToString("yyyy-MM-dd")<br />
+                <strong>Data sprzedaży:</strong> @(nieruchomosc.DataSprzedania.HasValue ? nieruchomosc.DataSprzedania.Value.ToString("yyyy-MM-dd") : "Niesprzedana")<br />
+            </li>
+        }
+    </ul>
+}
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rok)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rok)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StawkaKategoriiWartoscBudowli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StawkaKategoriiWartoscBudowli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Komentarz)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Komentarz)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Rok" />
+        <input type="submit" value="Usuń 🗑️" class="btn btn-danger" /> |
+        <a asp-action="Index">Wróć do listy 🔙</a>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+﻿@model ProperTax.Models.StawkaPodatku
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Dodaj nowy rok i stawki podatków 🆕</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rok" class="control-label"></label>
+                <input asp-for="Rok" class="form-control" />
+                <span asp-validation-for="Rok" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej" class="control-label"></label>
+                <input asp-for="StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="StawkaKategoriiGruntyPowierzchniaDzialkiMieszkalnej" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej" class="control-label"></label>
+                <input asp-for="StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="StawkaKategoriiGruntyPowierzchniaDzialkiNiemieszkalnej" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna" class="control-label"></label>
+                <input asp-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaMieszkalna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna" class="control-label"></label>
+                <input asp-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="StawkaKategoriiBudynkiPowierzchniaUzytkowaNiemieszkalna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StawkaKategoriiWartoscBudowli" class="control-label"></label>
+                <input asp-for="StawkaKategoriiWartoscBudowli" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="StawkaKategoriiWartoscBudowli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Komentarz" class="control-label"></label>
+                <input asp-for="Komentarz" class="form-control" />
+                <span asp-validation-for="Komentarz" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj 💾" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy 🔙</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
